@@ -1,7 +1,7 @@
 /* Reset propio (esta landing no usa App.css de la SaaS) */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { -webkit-text-size-adjust: 100%; }
-body { background: #f5f7fa; }
+body { background: linear-gradient(to right, #c1e1fc, #2f80e2, #7fc1f0, #224e8f); min-height: 100vh; }
 
 /* =========================================================
    QUADRA — Landing pública
@@ -24,7 +24,7 @@ body { background: #f5f7fa; }
   --q-font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --q-font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  background: linear-gradient(to right, #c1e1fc, #2f80e2, #7fc1f0, #224e8f);
+  background: transparent;
   color: var(--q-text);
   font-family: var(--q-font-body);
   line-height: 1.55;
