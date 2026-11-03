@@ -1,30 +1,30 @@
 /* Reset propio (esta landing no usa App.css de la SaaS) */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { -webkit-text-size-adjust: 100%; }
-body { background: linear-gradient(180deg, #1a0f05 0%, #0a0a15 100%); }
+body { background: #f5f7fa; }
 
 /* =========================================================
-   QUΔDRA — Landing pública
-   Paleta dinámica: Atardecer rojo → Noche azul
+   QUADRA — Landing pública
+   Paleta: Azul moderno y limpio
    ========================================================= */
 
 .landing {
-  /* Base: Estilo Solidroad */
-  --q-bg: #0f1419;
-  --q-text: #f0f0f0;
-  --q-text-dim: rgba(240, 240, 240, 0.65);
-  --q-accent: #d9a53f;
-  --q-accent-secondary: #e8b453;
+  /* Base: PrimeStay Style */
+  --q-bg: #f5f7fa;
+  --q-text: #1a1a1a;
+  --q-text-dim: rgba(26, 26, 26, 0.7);
+  --q-accent: #3366ff;
+  --q-accent-secondary: #0052cc;
 
   /* Resultados */
   --q-ok: #27AE60;
   --q-bad: #E74C3C;
 
   /* Tipografía */
-  --q-font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --q-font-display: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --q-font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  background: var(--q-bg);
+  background: linear-gradient(to right, #c1e1fc, #2f80e2, #7fc1f0, #224e8f);
   color: var(--q-text);
   font-family: var(--q-font-body);
   line-height: 1.55;
@@ -63,27 +63,36 @@ html:has(.landing) { scroll-behavior: smooth; }
 
 .q-btn--primary {
   background: var(--q-accent);
-  color: #0f1419;
+  color: #ffffff !important;
   font-weight: 600;
   transition: all .2s;
-  border-radius: 999px;
+  border-radius: 8px;
+}
+
+.q-btn--primary::-webkit-button-text {
+  color: #ffffff !important;
+}
+
+.q-btn--primary:hover {
+  background: var(--q-accent-secondary);
+  color: #ffffff !important;
 }
 .q-btn--primary:hover {
-  background: #e8b85a;
-  box-shadow: 0 0 0 4px rgba(217, 165, 63, 0.25);
+  background: var(--q-accent-secondary);
+  box-shadow: 0 0 0 4px rgba(51, 102, 255, 0.25);
   transform: translateY(-2px);
 }
 
 .q-btn--ghost {
   background: transparent;
   color: var(--q-text);
-  border: 2px solid rgba(217, 165, 63, 0.4);
+  border: 2px solid rgba(51, 102, 255, 0.3);
   transition: all .2s;
-  border-radius: 999px;
+  border-radius: 8px;
 }
 .q-btn--ghost:hover {
   border-color: var(--q-accent);
-  background: rgba(217, 165, 63, 0.1);
+  background: rgba(51, 102, 255, 0.08);
   color: var(--q-accent);
 }
 
@@ -111,17 +120,17 @@ html:has(.landing) { scroll-behavior: smooth; }
   width: min(980px, 100%);
   padding: 9px 10px 9px 18px;
   border-radius: 999px;
-  background: rgba(45, 24, 16, 0.5);
-  border: 1px solid rgba(255, 157, 63, 0.25);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(51, 102, 255, 0.15);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   backdrop-filter: blur(14px) saturate(140%);
   transition: background-color .3s, box-shadow .3s, border-color .3s;
 }
 
 .q-nav.is-scrolled .q-nav__bar {
-  background: rgba(26, 15, 5, 0.85);
-  border-color: rgba(255, 157, 63, 0.35);
-  box-shadow: 0 10px 40px rgba(212, 114, 31, 0.15);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(51, 102, 255, 0.25);
+  box-shadow: 0 10px 40px rgba(51, 102, 255, 0.12);
 }
 
 .q-logo {
@@ -149,6 +158,25 @@ html:has(.landing) { scroll-behavior: smooth; }
 .q-nav__links a:hover { color: var(--q-text); background: rgba(255, 255, 255, 0.06); }
 
 .q-nav__actions { display: flex; gap: 8px; }
+
+.q-theme-toggle {
+  pointer-events: auto;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.q-theme-toggle:hover {
+  background: rgba(51, 102, 255, 0.1);
+}
 
 .q-nav__toggle {
   display: none;
@@ -222,7 +250,7 @@ html:has(.landing) { scroll-behavior: smooth; }
   padding: 0 24px;
 }
 
-/* ---------- Hero: Solidroad Style ---------- */
+/* ---------- Hero: PrimeStay Style ---------- */
 .q-hero {
   position: relative;
   min-height: 100svh;
@@ -230,13 +258,18 @@ html:has(.landing) { scroll-behavior: smooth; }
   align-items: center;
   justify-content: center;
   padding: 120px 24px 80px;
-  text-align: left;
+  text-align: center;
   overflow: hidden;
+  background: linear-gradient(135deg, #e8f1ff 0%, #f0f5ff 50%, #e8ecf8 100%);
+  background-image: url('/src/assets/bg-gradient.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 
-  --q-blue: #d9a53f;
-  --q-sky: #d9a53f;
-  --q-navy: #0f1419;
-  --q-line: rgba(217, 165, 63, 0.2);
+  --q-blue: #3366ff;
+  --q-sky: #3366ff;
+  --q-navy: #001a4d;
+  --q-line: rgba(51, 102, 255, 0.15);
 }
 
 .q-hero__bg {
@@ -247,12 +280,13 @@ html:has(.landing) { scroll-behavior: smooth; }
   background-position: center;
   background-attachment: fixed;
   z-index: 0;
+  opacity: 0;
 }
 
 .q-hero__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(15, 20, 25, 0.95) 0%, rgba(15, 20, 25, 0.85) 40%, rgba(15, 20, 25, 0.3) 100%);
+  background: rgba(255, 255, 255, 0.85);
   z-index: 1;
 }
 
@@ -263,15 +297,15 @@ html:has(.landing) { scroll-behavior: smooth; }
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding-left: 0;
 }
 
 .q-hero__inner {
-  max-width: 600px;
-  margin-left: 60px;
+  max-width: 700px;
+  margin-left: 0;
   position: relative;
-  padding-left: 32px;
+  padding-left: 0;
 }
 
 .q-hero__inner::before {
@@ -280,9 +314,9 @@ html:has(.landing) { scroll-behavior: smooth; }
   left: 0;
   top: 0;
   bottom: 0;
-  width: 4px;
-  background: var(--q-accent);
-  box-shadow: 0 0 20px rgba(212, 255, 0, 0.5);
+  width: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .q-hero__badge {
@@ -322,6 +356,14 @@ html:has(.landing) { scroll-behavior: smooth; }
   gap: 12px;
   justify-content: center;
   margin-top: 36px;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .q-hero__cta {
+    flex-direction: row;
+  }
 }
 
 .q-hero__footer {
@@ -330,15 +372,15 @@ html:has(.landing) { scroll-behavior: smooth; }
   color: var(--q-text-dim);
 }
 
-/* ---------- Features / Beneficios: Solidroad Style ---------- */
+/* ---------- Features / Beneficios: PrimeStay Style ---------- */
 .q-features {
   padding: 80px 24px;
-  border-top: 1px solid rgba(217, 165, 63, 0.15);
-  background: linear-gradient(180deg, #0f1419 0%, #1a1f28 100%);
+  border-top: 1px solid rgba(51, 102, 255, 0.1);
+  background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
 
-  --q-blue: #d9a53f;
-  --q-sky: #d9a53f;
-  --q-line: rgba(217, 165, 63, 0.15);
+  --q-blue: #3366ff;
+  --q-sky: #3366ff;
+  --q-line: rgba(51, 102, 255, 0.1);
 }
 
 .q-features__header {
@@ -369,9 +411,9 @@ html:has(.landing) { scroll-behavior: smooth; }
 
 .q-feature-card {
   padding: 48px 40px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 120, 60, 0.08) 0%, rgba(255, 140, 80, 0.04) 100%);
-  border: 1px solid rgba(255, 157, 63, 0.2);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(51, 102, 255, 0.06) 0%, rgba(100, 150, 255, 0.03) 100%);
+  border: 1px solid rgba(51, 102, 255, 0.12);
   transition: all .35s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   position: relative;
@@ -382,16 +424,16 @@ html:has(.landing) { scroll-behavior: smooth; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top right, rgba(255, 157, 63, 0.1), transparent 70%);
+  background: radial-gradient(circle at top right, rgba(51, 102, 255, 0.08), transparent 70%);
   opacity: 0;
   transition: opacity .35s;
 }
 
 .q-feature-card:hover {
-  background: linear-gradient(135deg, rgba(255, 120, 60, 0.15) 0%, rgba(255, 140, 80, 0.08) 100%);
-  border-color: rgba(255, 157, 63, 0.4);
+  background: linear-gradient(135deg, rgba(51, 102, 255, 0.12) 0%, rgba(100, 150, 255, 0.06) 100%);
+  border-color: rgba(51, 102, 255, 0.25);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(255, 120, 60, 0.15);
+  box-shadow: 0 20px 40px rgba(51, 102, 255, 0.12);
 }
 
 .q-feature-card:hover::before {
@@ -417,16 +459,16 @@ html:has(.landing) { scroll-behavior: smooth; }
   line-height: 1.6;
 }
 
-/* ---------- How It Works: Solidroad Style ---------- */
+/* ---------- How It Works: PrimeStay Style ---------- */
 .q-howitworks {
   padding: 80px 24px;
-  border-top: 1px solid rgba(217, 165, 63, 0.15);
-  background: linear-gradient(180deg, #0f1419 0%, #1a1f28 100%);
+  border-top: 1px solid rgba(51, 102, 255, 0.1);
+  background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
   position: relative;
 
-  --q-blue: #d9a53f;
-  --q-sky: #d9a53f;
-  --q-line: rgba(217, 165, 63, 0.15);
+  --q-blue: #3366ff;
+  --q-sky: #3366ff;
+  --q-line: rgba(51, 102, 255, 0.1);
 }
 
 .q-howitworks__header {
@@ -457,18 +499,18 @@ html:has(.landing) { scroll-behavior: smooth; }
 .q-step-card {
   position: relative;
   padding: 48px 32px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(232, 132, 63, 0.08) 0%, rgba(200, 100, 60, 0.04) 100%);
-  border: 1px solid rgba(232, 132, 63, 0.15);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(51, 102, 255, 0.06) 0%, rgba(100, 150, 255, 0.03) 100%);
+  border: 1px solid rgba(51, 102, 255, 0.12);
   text-align: center;
   transition: all .35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .q-step-card:hover {
-  background: linear-gradient(135deg, rgba(232, 132, 63, 0.15) 0%, rgba(200, 100, 60, 0.08) 100%);
-  border-color: rgba(232, 132, 63, 0.3);
+  background: linear-gradient(135deg, rgba(51, 102, 255, 0.12) 0%, rgba(100, 150, 255, 0.06) 100%);
+  border-color: rgba(51, 102, 255, 0.25);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(200, 100, 60, 0.12);
+  box-shadow: 0 20px 40px rgba(51, 102, 255, 0.12);
 }
 
 .q-step-card__number {
@@ -478,7 +520,7 @@ html:has(.landing) { scroll-behavior: smooth; }
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #d4721f, #ff9d3f);
+  background: linear-gradient(135deg, #3366ff, #5588ff);
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 16px;
@@ -523,15 +565,15 @@ html:has(.landing) { scroll-behavior: smooth; }
   max-height: 200px;
 }
 
-/* ---------- About: Noche Profunda Dorada ---------- */
+/* ---------- About: PrimeStay Style ---------- */
 .q-about {
   padding: 80px 24px;
-  border-top: 1px solid rgba(100, 80, 120, 0.2);
-  background: linear-gradient(180deg, rgba(80, 60, 100, 0.08) 0%, transparent 100%);
+  border-top: 1px solid rgba(51, 102, 255, 0.1);
+  background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
 
-  --q-blue: #a46030;
-  --q-sky: #cc7a3f;
-  --q-line: rgba(204, 122, 63, 0.15);
+  --q-blue: #3366ff;
+  --q-sky: #3366ff;
+  --q-line: rgba(51, 102, 255, 0.1);
 }
 
 .q-about__content {
@@ -569,9 +611,9 @@ html:has(.landing) { scroll-behavior: smooth; }
   font-family: var(--q-font-display);
   font-size: 32px;
   font-weight: 600;
-  color: #ff9d3f;
+  color: #3366ff;
   margin-bottom: 8px;
-  background: linear-gradient(135deg, #ff9d3f, #ffc070);
+  background: linear-gradient(135deg, #3366ff, #5588ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -624,15 +666,15 @@ html:has(.landing) { scroll-behavior: smooth; }
   color: var(--q-text-dim);
 }
 
-/* ---------- Pricing: Solidroad Style ---------- */
+/* ---------- Pricing: PrimeStay Style ---------- */
 .q-pricing {
   padding: 80px 24px;
-  border-top: 1px solid rgba(217, 165, 63, 0.15);
-  background: linear-gradient(180deg, #0f1419 0%, #1a1f28 100%);
+  border-top: 1px solid rgba(51, 102, 255, 0.1);
+  background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
 
-  --q-blue: #d9a53f;
-  --q-sky: #d9a53f;
-  --q-line: rgba(217, 165, 63, 0.15);
+  --q-blue: #3366ff;
+  --q-sky: #3366ff;
+  --q-line: rgba(51, 102, 255, 0.1);
 }
 
 .q-pricing__header {
@@ -665,29 +707,29 @@ html:has(.landing) { scroll-behavior: smooth; }
 .q-pricing-card {
   position: relative;
   padding: 48px 40px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(184, 128, 96, 0.08) 0%, rgba(150, 100, 80, 0.04) 100%);
-  border: 1px solid rgba(184, 128, 96, 0.15);
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(51, 102, 255, 0.12);
   display: flex;
   flex-direction: column;
   transition: all .35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .q-pricing-card:hover {
-  border-color: rgba(184, 128, 96, 0.3);
-  background: linear-gradient(135deg, rgba(184, 128, 96, 0.12) 0%, rgba(150, 100, 80, 0.08) 100%);
+  border-color: rgba(51, 102, 255, 0.25);
+  background: #f8fbff;
   transform: translateY(-6px);
-  box-shadow: 0 25px 50px rgba(184, 128, 96, 0.15);
+  box-shadow: 0 25px 50px rgba(51, 102, 255, 0.12);
 }
 
 .q-pricing-card--featured {
   border: 2px solid var(--q-sky);
-  background: linear-gradient(135deg, rgba(255, 157, 63, 0.15) 0%, rgba(255, 120, 60, 0.08) 100%);
+  background: linear-gradient(135deg, rgba(51, 102, 255, 0.08) 0%, rgba(100, 150, 255, 0.04) 100%);
   transform: scale(1.05);
 }
 
 .q-pricing-card--featured:hover {
-  box-shadow: 0 30px 60px rgba(255, 157, 63, 0.3);
+  box-shadow: 0 30px 60px rgba(51, 102, 255, 0.2);
   transform: scale(1.08);
 }
 
@@ -697,7 +739,7 @@ html:has(.landing) { scroll-behavior: smooth; }
   left: 50%;
   transform: translateX(-50%);
   padding: 6px 14px;
-  background: linear-gradient(135deg, #d4721f, #ff9d3f);
+  background: linear-gradient(135deg, #3366ff, #5588ff);
   border-radius: 999px;
   font-size: 12px;
   font-weight: 600;
@@ -725,7 +767,7 @@ html:has(.landing) { scroll-behavior: smooth; }
   font-family: var(--q-font-display);
   font-size: 48px;
   font-weight: 600;
-  color: #ff9d3f;
+  color: #3366ff;
 }
 
 .q-pricing-card__period {
@@ -788,14 +830,14 @@ html:has(.landing) { scroll-behavior: smooth; }
 .q-faq-item {
   padding: 20px;
   border-radius: 8px;
-  background: rgba(15, 30, 60, 0.5);
+  background: rgba(51, 102, 255, 0.04);
   border: 1px solid var(--q-line);
   cursor: pointer;
   transition: all .2s;
 }
 
 .q-faq-item:hover {
-  background: rgba(15, 30, 60, 0.8);
+  background: rgba(51, 102, 255, 0.1);
   border-color: var(--q-sky);
 }
 
@@ -824,15 +866,15 @@ html:has(.landing) { scroll-behavior: smooth; }
   line-height: 1.6;
 }
 
-/* ---------- CTA Final: Solidroad Style ---------- */
+/* ---------- CTA Final: PrimeStay Style ---------- */
 .q-cta-final {
   padding: 80px 24px;
-  border-top: 1px solid rgba(217, 165, 63, 0.15);
-  background: linear-gradient(135deg, #0f1419, #1a1f28);
+  border-top: 1px solid rgba(51, 102, 255, 0.1);
+  background: linear-gradient(135deg, #001a4d, #0d3aa6);
 
-  --q-blue: #d9a53f;
-  --q-sky: #d9a53f;
-  --q-line: rgba(217, 165, 63, 0.15);
+  --q-blue: #3366ff;
+  --q-sky: #3366ff;
+  --q-line: rgba(51, 102, 255, 0.25);
 }
 
 .q-cta-final__content {
@@ -842,15 +884,15 @@ html:has(.landing) { scroll-behavior: smooth; }
 }
 
 .q-cta-final__content h2 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 700;
   margin-bottom: 16px;
-  color: var(--q-text);
+  color: #ffffff;
 }
 
 .q-cta-final__content p {
-  color: var(--q-text-dim);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1.05rem;
   margin-bottom: 32px;
 }
@@ -865,18 +907,18 @@ html:has(.landing) { scroll-behavior: smooth; }
   margin-top: 16px;
 }
 
-/* ---------- Footer: Noche Completa Azul ---------- */
+/* ---------- Footer: PrimeStay Blue ---------- */
 .q-footer {
   position: relative;
-  border-top: 1px solid rgba(60, 100, 160, 0.35);
-  background: linear-gradient(180deg, rgba(30, 50, 90, 0.8), rgba(20, 40, 80, 0.9));
+  border-top: 1px solid rgba(51, 102, 255, 0.2);
+  background: linear-gradient(180deg, #001a4d, #0a2d99);
   padding: 60px 24px 24px;
   overflow: hidden;
 
-  --q-blue: #5080c0;
-  --q-sky: #7090d0;
-  --q-navy: #1a2a4a;
-  --q-line: rgba(112, 144, 200, 0.3);
+  --q-blue: #3366ff;
+  --q-sky: #6699ff;
+  --q-navy: #001a4d;
+  --q-line: rgba(51, 102, 255, 0.3);
 }
 
 
@@ -903,11 +945,12 @@ html:has(.landing) { scroll-behavior: smooth; }
   font-family: var(--q-font-display);
   font-size: 18px;
   font-weight: 600;
+  color: #ffffff;
 }
 
 .q-footer__desc {
   font-size: 13px;
-  color: var(--q-text-dim);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
 
@@ -939,7 +982,7 @@ html:has(.landing) { scroll-behavior: smooth; }
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #ff9d3f;
+  color: #6699ff;
 }
 
 .q-footer__section ul {
@@ -1051,6 +1094,67 @@ html:has(.landing) { scroll-behavior: smooth; }
   .q-features__grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ---------- Dark Mode ---------- */
+html[data-theme="dark"] {
+  --q-bg: #0f1419;
+  --q-text: #ffffff;
+  --q-text-dim: rgba(255, 255, 255, 0.85);
+}
+
+html[data-theme="dark"] body {
+  background: #0f1419;
+}
+
+html[data-theme="dark"] .landing {
+  background: #0f1419;
+  color: #ffffff;
+}
+
+html[data-theme="dark"] * {
+  color: #ffffff;
+}
+
+html[data-theme="dark"] .q-nav__links a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+html[data-theme="dark"] .q-hero {
+  background: linear-gradient(180deg, #1a0f05 0%, #0a0a15 100%);
+  background-image: none;
+}
+
+html[data-theme="dark"] .q-hero__overlay {
+  background: linear-gradient(90deg, rgba(15, 20, 25, 0.95) 0%, rgba(15, 20, 25, 0.85) 40%, rgba(15, 20, 25, 0.3) 100%);
+}
+
+html[data-theme="dark"] .q-nav__bar {
+  background: rgba(45, 24, 16, 0.5);
+  border: 1px solid rgba(255, 157, 63, 0.25);
+}
+
+html[data-theme="dark"] .q-nav.is-scrolled .q-nav__bar {
+  background: rgba(26, 15, 5, 0.85);
+  border-color: rgba(255, 157, 63, 0.35);
+}
+
+html[data-theme="dark"] .q-features,
+html[data-theme="dark"] .q-howitworks,
+html[data-theme="dark"] .q-about,
+html[data-theme="dark"] .q-pricing {
+  background: linear-gradient(180deg, #0f1419 0%, #1a1f28 100%);
+}
+
+html[data-theme="dark"] .q-feature-card,
+html[data-theme="dark"] .q-step-card {
+  background: linear-gradient(135deg, rgba(255, 120, 60, 0.08) 0%, rgba(255, 140, 80, 0.04) 100%);
+  border: 1px solid rgba(255, 157, 63, 0.2);
+}
+
+html[data-theme="dark"] .q-pricing-card {
+  background: linear-gradient(135deg, rgba(184, 128, 96, 0.08) 0%, rgba(150, 100, 80, 0.04) 100%);
+  border: 1px solid rgba(184, 128, 96, 0.15);
 }
 
 /* ---------- Accesibilidad: reducir movimiento ---------- */

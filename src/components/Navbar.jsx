@@ -12,6 +12,12 @@ const LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('q-theme') === 'dark'
+    }
+    return false
+  })
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -27,11 +33,32 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', onKey)
   }, [open])
 
+  useEffect(() => {
+    const root = document.documentElement
+    if (darkMode) {
+      root.setAttribute('data-theme', 'dark')
+      localStorage.setItem('q-theme', 'dark')
+    } else {
+      root.removeAttribute('data-theme')
+      localStorage.setItem('q-theme', 'light')
+    }
+  }, [darkMode])
+
   const close = () => setOpen(false)
+  const toggleTheme = () => setDarkMode(!darkMode)
 
   // Estos enlaces llevan a la SaaS (otro dominio), por eso son <a> normales.
   const actions = (
     <>
+      <button
+        type="button"
+        className="q-theme-toggle"
+        onClick={toggleTheme}
+        aria-label={darkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
+        title={darkMode ? 'Modo claro' : 'Modo oscuro'}
+      >
+        {darkMode ? '☀️' : '🌙'}
+      </button>
       <a className="q-btn q-btn--ghost" href={LOGIN_URL}>Ingresar</a>
       <a className="q-btn q-btn--primary" href={SIGNUP_URL}>Probar gratis</a>
     </>
