@@ -1,7 +1,7 @@
 /* Reset propio (esta landing no usa App.css de la SaaS) */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { -webkit-text-size-adjust: 100%; }
-body { background: linear-gradient(to right, #c1e1fc, #2f80e2, #7fc1f0, #224e8f); min-height: 100vh; }
+body { background: url('/light-bg.jpg') center / cover no-repeat fixed; min-height: 100vh; }
 
 /* =========================================================
    QUADRA — Landing pública
@@ -1104,7 +1104,8 @@ html[data-theme="dark"] {
 }
 
 html[data-theme="dark"] body {
-  background: #0f1419;
+  background: url('/dark-bg.jpg') center / cover no-repeat fixed;
+  min-height: 100vh;
 }
 
 html[data-theme="dark"] .landing {
